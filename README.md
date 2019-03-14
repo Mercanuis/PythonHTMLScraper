@@ -49,7 +49,7 @@ Content-type: application/json
 
 The scraper is using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) for the HTML parsing, and stripping of the words from the HTML into usable tokens. 
 
-For the DB I'm using a technique shown in this [Medium Article](https://medium.freecodecamp.org/how-to-write-a-simple-toy-database-in-python-within-minutes-51ff49f47f1) that allows for a quick and dirty DB that can store previously found keys. The 'schema' is a <key>: target/value pairs where 'key' is the URL and 'target' is the word searched for. 
+For the DB I'm using a technique shown in this [Medium Article](https://medium.freecodecamp.org/how-to-write-a-simple-toy-database-in-python-within-minutes-51ff49f47f1) that allows for a quick and dirty DB that can store previously found keys. The 'schema' is a `key: target/value` pairs where 'key' is the URL and 'target' is the word searched for. 
   
 Caveats and Concerns
 - Complexity is at worst **N^N** when you are looking for a new word, because then the scraper needs to fetch the HTML page, parse the tokens, and then collect the count. If there is a DB hit, then complexity is **N**
