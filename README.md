@@ -3,7 +3,7 @@ A small HTML Parser/Scraper for Python
 
 Uses Python 2.7 because that was what I had on my dev laptop. With Python 3.0 I cannot verify nor know what might be different with regards to execution
 
-Written in PyCharm, so forgive any weird any analysis rules it had with formatting. I am not sure if these follow Python 'Best Practices' when it comes to code organization
+Written in PyCharm, so forgive any weird analysis rules it had with formatting. I am not sure if these follow Python 'Best Practices' when it comes to code organization
 
 **How To Use**
 There are 2 ways to use the scraper, you can call it via the command line with the following
