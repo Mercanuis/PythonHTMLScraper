@@ -8,7 +8,7 @@ Written in PyCharm, so forgive any weird any analysis rules it had with formatti
 **How To Use**
 There are 2 ways to use the scraper, you can call it via the command line with the following
 ```bash
-python parse.py <URL> <target_word>
+python do_parse.py <URL> <target_word>
 ```
 
 You should get something like this in the console:
