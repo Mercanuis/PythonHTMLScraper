@@ -53,7 +53,5 @@ For the DB I'm using a technique shown in this [Medium Article](https://medium.f
   
 Caveats and Concerns
 - Complexity is at worst **N^N** when you are looking for a new word, because then the scraper needs to fetch the HTML page, parse the tokens, and then collect the count. If there is a DB hit, then complexity is **N**
-- Organization of the code is a mess. I wanted to learn more about proper module and class organization but I ran out of time
 - `database` holds the db file upon initialization, the path is relative to where this is put and will likely need to be fixed if put in a different place
-- `parse` is the name of the command-line script, but it holds a name close to the `parser.parse` function which is the main engine and service of the scraper, need to figure out a more clear name (Names are too hard! >:( )
 - the HTTP response looks mangled and could probably be better recieved, need to learn how to set proper headers with the HTTP libraries
