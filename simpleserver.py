@@ -2,13 +2,16 @@
 """
 Very simple HTTP server in python.
 Usage::
-    ./dummy-web-server.py [<port>]
-Send a GET request::
-    curl http://localhost
-Send a HEAD request::
-    curl -I http://localhost
+    ./simpleserver.py [<port>]
 Send a POST request::
-    curl -d "foo=bar&bin=baz" http://localhost
+    Expects a HTTP body that contains the following keys (application/json)
+    {
+        "word":"word",
+        "url":"<URL>"
+    }
+    curl http://localhost:8000/wordcount -X POST -H \
+    "Content-Type: application/json" \
+    -d '{"url":"https://www.python.org", "word":"the"}' [| jq]
 """
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 from parser import Parser
@@ -36,6 +39,8 @@ class S(BaseHTTPRequestHandler):
                 self._set_headers()
                 self.send_response(400)
 
+    # Calls the parser to fetch the count for target
+    # data holds the HTTP param map
     @staticmethod
     def fetch_count(data):
         params = {}
@@ -50,6 +55,7 @@ class S(BaseHTTPRequestHandler):
         return data
 
 
+# Runs the server
 def run(server_class=HTTPServer, handler_class=S, port=8000):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
